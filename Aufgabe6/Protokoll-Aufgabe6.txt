@@ -1,0 +1,164 @@
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen$ cd Aufgabe6
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ cd lib/
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ ./build-static.sh
+g++ -g -c -W -Wall -Weffc++ -Wold-style-cast -std=c++11 benotung.cpp -o benotung.o
+g++ -g -c -W -Wall -Weffc++ -Wold-style-cast -std=c++11 fachnote.cpp -o fachnote.o
+g++ -g -c -W -Wall -Weffc++ -Wold-style-cast -std=c++11 fachnoten_liste.cpp -o fachnoten_liste.o
+ar rvs libaufgabe6.a benotung.o fachnote.o fachnoten_liste.o
+r - benotung.o
+r - fachnote.o
+r - fachnoten_liste.o
+build successful
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ ar t libaufgabe6.a
+benotung.o
+fachnote.o
+fachnoten_liste.o
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ ./build-dynamic.sh
+g++ -g -c -W -Wall -Weffc++ -fpic -pedantic -Wold-style-cast -std=c++11 benotung.cpp
+./build-dynamic.sh: 6: [0: not found
+g++ -g -c -W -Wall -Weffc++ -fpic -pedantic -Wold-style-cast -std=c++11 fachnote.cpp
+./build-dynamic.sh: 6: [0: not found
+g++ -g -c -W -Wall -Weffc++ -fpic -pedantic -Wold-style-cast -std=c++11 fachnoten_liste.cpp
+./build-dynamic.sh: 6: [0: not found
+g++ -shared -o libaufgabe6.so benotung.o fachnote.o fachnoten_liste.o
+build successful
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ file libaufgabe6.so
+libaufgabe6.so: ELF 64-bit LSB shared object, x86-64, version 1 (GNU/Linux), dynamically linked, BuildID[sha1]=d3948db908cfc57cf3713c2b88002de6ee027b5c, with debug_info, not stripped
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ nm -gC libaufgabe6.so | grep 'be
+notung\|fachnote\|fachnoten_liste'
+0000000000002ce0 W fachnoten_liste::Node::Node(fachnote*)
+0000000000002ce0 W fachnoten_liste::Node::Node(fachnote*)
+0000000000002c30 T fachnoten_liste::insert(fachnote*)
+0000000000002b80 T fachnoten_liste::fachnoten_liste(std::function<void (fachnote*)>)
+0000000000002b80 T fachnoten_liste::fachnoten_liste(std::function<void (fachnote*)>)
+0000000000002bba T fachnoten_liste::~fachnoten_liste()
+0000000000002bba T fachnoten_liste::~fachnoten_liste()
+0000000000005150 B benotung::schlechteste
+000000000000514c B benotung::beste
+000000000000257a T benotung::benotung(int)
+000000000000257a T benotung::benotung(int)
+0000000000002aba T fachnote::fachnote(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, benotung const&)
+0000000000002aba T fachnote::fachnote(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, benotung const&)
+0000000000002706 T benotung::ist_bestanden() const
+00000000000026f2 T benotung::int_value() const
+0000000000002e16 W std::function<void (fachnote*)>::operator()(fachnote*) const
+0000000000002e6a W std::function<void (fachnote*)>::operator bool() const
+0000000000002d58 W std::function<void (fachnote*)>::function(std::function<void (fachnote*)> const&)
+0000000000002d58 W std::function<void (fachnote*)>::function(std::function<void (fachnote*)> const&)
+0000000000002d0a W std::function<void (fachnote*)>::~function()
+0000000000002d0a W std::function<void (fachnote*)>::~function()
+0000000000002e8b W fachnote*&& std::forward<fachnote*>(std::remove_reference<fachnote*>::type&)
+0000000000002720 T operator==(benotung, benotung)
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ make
+g++ -Wall -Wextra -std=c++11 -MM benotung.cpp fachnote.cpp fachnoten_liste.cpp > depend
+ar rcs liblibnoten.a  ./benotung.o  ./fachnote.o  ./fachnoten_liste.o
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ make LIBTYPE=a
+g++ -Wall -Wextra -std=c++11 -MM benotung.cpp fachnote.cpp fachnoten_liste.cpp > depend
+make: Nothing to be done for 'all'.
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ make LIBTYPE=so
+g++ -Wall -Wextra -std=c++11 -MM benotung.cpp fachnote.cpp fachnoten_liste.cpp > depend
+g++ -shared -o liblibnoten.so  ./benotung.o  ./fachnote.o  ./fachnoten_liste.o
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ touch Dateiname
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib$ cd ..
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ cd bin/
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin$ make
+g++  -I../lib -L../lib -Wl,-rpath=../lib -o notenspiegel notenspiegel.o -l:libaufgabe6.a
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin$ cd ..
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ make clean
+make -C lib clean
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+g++ -Wall -Wextra -std=c++11 -MM benotung.cpp fachnote.cpp fachnoten_liste.cpp > depend
+rm -f  ./benotung.o  ./fachnote.o  ./fachnoten_liste.o libnoten.a libnoten.so depend
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+make -C bin clean
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin'
+rm -f notenspiegel notenspiegel.o depend
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin'
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ make -R all
+make -C lib
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+g++ -Wall -Wextra -std=c++11 -MM benotung.cpp fachnote.cpp fachnoten_liste.cpp > depend
+g++ -Wall -Wextra -std=c++11 -c benotung.cpp -o benotung.o
+g++ -Wall -Wextra -std=c++11 -c fachnote.cpp -o fachnote.o
+g++ -Wall -Wextra -std=c++11 -c fachnoten_liste.cpp -o fachnoten_liste.o
+ar rcs liblibnoten.a  ./benotung.o  ./fachnote.o  ./fachnoten_liste.o
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+make -C bin
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin'
+g++  -I../lib -MM notenspiegel.cpp > depend
+g++  -I../lib -g -W -Wall -Weffc++ -Wold-style-cast -std=c++11 -fpic -c notenspiegel.cpp -o notenspiegel.o
+g++  -I../lib -L../lib -Wl,-rpath=../lib -o notenspiegel notenspiegel.o -l:libaufgabe6.a
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin'
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ bin/notenspiegel
+Fach und Note zwischen 10 und 50 eingeben (Ende mit Strg-D):
+Mathe 10 Deutsch 20 Englisch 50
+
+NOTENSPIEGEL
+Englisch        5,0     nicht bestanden
+Deutsch         2,0     bestanden
+Mathe           1,0     mit Bestnote bestanden
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ make -R clean
+make -C lib clean
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+g++ -Wall -Wextra -std=c++11 -MM benotung.cpp fachnote.cpp fachnoten_liste.cpp > depend
+rm -f  ./benotung.o  ./fachnote.o  ./fachnoten_liste.o libnoten.a libnoten.so depend
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+make -C bin clean
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin'
+rm -f notenspiegel notenspiegel.o depend
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/bin'
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ make -R LIBTYPE=so
+make -C lib
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+g++ -Wall -Wextra -std=c++11 -MM benotung.cpp fachnote.cpp fachnoten_liste.cpp > depend
+g++ -Wall -Wextra -std=c++11 -c benotung.cpp -o benotung.o
+g++ -Wall -Wextra -std=c++11 -c fachnote.cpp -o fachnote.o
+g++ -Wall -Wextra -std=c++11 -c fachnoten_liste.cpp -o fachnoten_liste.o
+g++ -shared -o liblibnoten.so  ./benotung.o  ./fachnote.o  ./fachnoten_liste.o
+/usr/bin/ld: ./benotung.o: warning: relocation against `_ZN8benotung12schlechtesteE' in read-only section `.text'
+/usr/bin/ld: ./benotung.o: relocation R_X86_64_PC32 against symbol `_ZTISt16invalid_argument@@GLIBCXX_3.4' can not be used when making a shared object; recompile with -fPIC
+/usr/bin/ld: final link failed: bad value
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:37: liblibnoten.so] Error 1
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+make: *** [Makefile:12: lib] Error 2
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ make -R LIBTYPE=so
+make -C lib
+make[1]: Entering directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+g++ -shared -o liblibnoten.so benotung.o fachnote.o fachnoten_liste.o
+/usr/bin/ld: benotung.o: warning: relocation against `_ZN8benotung12schlechtesteE' in read-only section `.text'
+/usr/bin/ld: benotung.o: relocation R_X86_64_PC32 against symbol `_ZTISt16invalid_argument@@GLIBCXX_3.4' can not be used when making a shared object; recompile with -fPIC
+/usr/bin/ld: final link failed: bad value
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:36: liblibnoten.so] Error 1
+make[1]: Leaving directory '/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6/lib'
+make: *** [Makefile:18: lib] Error 2
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ ldd bin/notenspiegel
+        linux-vdso.so.1 (0x00007ffeb575c000)
+        libaufgabe6.so => not found
+        libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f3453fb2000)
+        libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f3453f92000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f3453d69000)
+        libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f3453c82000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f34541ed000)
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ LD_LIBRARY_PATH=lib ldd bin/notenspiegel
+        linux-vdso.so.1 (0x00007fff816e3000)
+        libaufgabe6.so => lib/libaufgabe6.so (0x00007fab9bb6d000)
+        libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fab9b93b000)
+        libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fab9b91b000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fab9b6f2000)
+        libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fab9b60b000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007fab9bb7c000)
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$ LD_LIBRARY_PATH=lib bin/notenspiegel
+Fach und Note zwischen 10 und 50 eingeben (Ende mit Strg-D):
+Mathe 10
+Deutsch 20
+Englisch 40
+Spanisch 50
+
+NOTENSPIEGEL
+Spanisch        5,0     nicht bestanden
+Englisch        4,0     bestanden
+Deutsch         2,0     bestanden
+Mathe           1,0     mit Bestnote bestanden
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe6$
