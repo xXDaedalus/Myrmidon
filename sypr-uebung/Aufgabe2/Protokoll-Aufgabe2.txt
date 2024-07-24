@@ -1,0 +1,216 @@
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ javac Bubblesort.java
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ java Bubblesort 10
+Bitte 10 ganze Zahlen eingeben: 9 2 4 3 1 5 6 8 7 10
+Sortierte Zahlenfolge:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ make
+make: Nothing to be done for 'all'.
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ make clean
+rm -f bubblesort bubblesort.o
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ make
+gcc -g -Wall -Wextra -Werror -Wvla -std=c11 -pedantic    bubblesort.c   -o bubblesort
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ ./bubblesort 10
+Please enter 10 integers: 9 2 4 3 1 5 6 8 7 10
+Sorted sequence of numbers:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ valgrind ./bubblesort 10
+==24792== Memcheck, a memory error detector
+==24792== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==24792== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==24792== Command: ./bubblesort 10
+==24792==
+Please enter 10 integers: 9 2 4 3 1 5 6 8 7 10
+Sorted sequence of numbers:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+==24792==
+==24792== HEAP SUMMARY:
+==24792==     in use at exit: 0 bytes in 0 blocks
+==24792==   total heap usage: 3 allocs, 3 frees, 2,088 bytes allocated
+==24792==
+==24792== All heap blocks were freed -- no leaks are possible
+==24792==
+==24792== For lists of detected and suppressed errors, rerun with: -s
+==24792== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ make cppcheck
+cppcheck --enable=warning,style --std=c11 bubblesort.c
+Checking bubblesort.c ...
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ ./bubblesort 1000 < /dev/null | tail -1000 > out.txt
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ sort -n out.txt | diff - out.txt
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ man tail
+
+
+Fragen:
+-Verhält sich das C-Programm bei allen Eingaben wie das Java-Programm? 
+ Nein, bspw., wenn Buchstaben statt Zahlen eingegeben werden.
+  
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ java Bubblesort 10
+Bitte 10 ganze Zahlen eingeben: a
+-633375504
+-1295794959
+-2114985442
+495566091
+2032106926
+-157443538
+867277429
+-1040832387
+471790028
+1870428040
+Sortierte Zahlenfolge:
+-2114985442
+-1295794959
+-1040832387
+-633375504
+-157443538
+471790028
+495566091
+867277429
+1870428040
+2032106926
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ make
+make: Nothing to be done for 'all'.
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ ./bubblesort 10
+Please enter 10 integers: a
+1190393363
+445920259
+1935144481
+287834617
+1022684735
+1446653834
+967851533
+812826731
+1894211726
+29525424
+Sorted sequence of numbers:
+29525424
+287834617
+445920259
+812826731
+967851533
+1022684735
+1190393363
+1446653834
+1894211726
+1935144481
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$
+
+-Funktioniert die Fehlerbehandlung bei Speicherreservierung und Einlesen?
+ Die Fehlerbehandlung im C-Programm funktioniert bei Speicherreservierung und Einlesen korrekt.
+-Meldet valgrind Fehler?
+ Nein
+-Meldet cppcheck Probleme?
+ nein
+-Was gibt die obige Befehlsfolge im Terminal aus, wenn Ihr bubblesort richtig sortiert hat?
+ Nichts
+-Wächst die Ausführungszeit tatsächlich quadratisch mit der Array-Größe?
+ Nein
+
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time java Bubblesort 100 < /dev/null
+ > /dev/null
+
+real    0m0.305s
+user    0m0.142s
+sys     0m0.098s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time java Bubblesort 1000 < /dev/nul
+l > /dev/null
+
+real    0m0.202s
+user    0m0.274s
+sys     0m0.041s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time java Bubblesort 10000 < /dev/nu
+ll > /dev/null
+
+real    0m0.377s
+user    0m0.631s
+sys     0m0.135s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time ./bubblesort 100 < /dev/null >
+/dev/null
+
+real    0m0.008s
+user    0m0.002s
+sys     0m0.000s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time ./bubblesort 1000 < /dev/null >
+ /dev/null
+
+real    0m0.012s
+user    0m0.005s
+sys     0m0.000s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time ./bubblesort 10000 < /dev/null
+> /dev/null
+
+real    0m0.266s
+user    0m0.249s
+sys     0m0.010s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$
+
+-Ist das Java-Programm oder das C-Programm schneller? Können Sie sich den Unterschied erklären?
+    	-Java benötigt Zeit, um die JVM zu starten und den Bytecode zu laden und zu interpretieren.
+    	-C-Programme starten sofort nach dem Laden in den Speicher.
+
+    	-C verwendet direkte Speicherzugriffe und manuelle Speicherverwaltung, was weniger Overhead verursacht.
+    	-Java verwendet eine automatische Speicherverwaltung mit Garbage Collection, was zusätzlichen Overhead verursacht und zu 	gelegentlichen Pausen führen kann.
+
+-Ist das optimierte Programm erkennbar schneller?
+ ja
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time ./bubblesort 10000 < /dev/null
+> /dev/null
+
+real    0m0.266s
+user    0m0.249s
+sys     0m0.010s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ make "CC=gcc -g -O2" clean all
+rm -f bubblesort bubblesort.o
+gcc -g -O2 -Wall -Wextra -Werror -Wvla -std=c11 -pedantic    bubblesort.c   -o bubblesort
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ time ./bubblesort 10000 < /dev/null > /dev/null
+
+real    0m0.120s
+user    0m0.113s
+sys     0m0.000s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$
+
+
+-Welche der beiden Schleifen ist bei sehr großem n schneller?
+ Loop 2 ist schneller
+    Testen Sie Ihre Hypothese mit zwei kleinen C-Programmen. Nutzen Sie wie im Pflichtteil das time-Kommando.
+
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ gcc -o test_first_loop test_first_loop.c
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ ./test_first_loop
+First loop time: 0.775751 seconds
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ gcc -o test_second_loop test_second_
+loop.c
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe2$ ./test_second_loop
+Second loop time: 0.144421 seconds
+
+-Erklären Sie, wie der Laufzeitunterschied zwischen den beiden Schleifen zustande kommt. Sie brauchen für die Antwort Kenntnisse über Rechnerarchtekturen. Der entscheidende Begriff fängt mit dem Buchstaben C an.
+
+Der Laufzeitunterschied zwischen den beiden Schleifen entsteht hauptsächlich durch den unterschiedlichen Umgang mit dem CPU-Cache. Die erste Schleife führt aufgrund des zufälligen Zugriffsmusters zu vielen Cache-Misses, während die zweite Schleife durch das sequenzielle Zugriffsmuster von vielen Cache-Hits profitiert.
+
+
+
+
