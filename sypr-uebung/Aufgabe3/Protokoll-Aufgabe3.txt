@@ -1,0 +1,125 @@
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe4$ cd ..
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen$ cd Aufgabe3
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ javac Stringsort.java
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ java Stringsort 200
+Unsortiertes Array:
+154 94 102 50 64 188 57 55 20 7 20 16 75 137 53 9 56 24 91 106 48 9 150 104 40 134 10 16 173 114 191 87 88 176 161 197 108 44 46 96 109 145 25 21 79 186 35 57 192 52 8 37 27 16 61 160 42 167 108 62 119 45 65 55 79 128 77 90 156 26 108 16 125 90 173 77 92 114 53 56 27 177 185 92 20 183 166 152 84 185 70 1 20 35 50 87 196 194 54 124 91 12 70 73 63 158 51 35 149 85 97 138 142 41 16 171 135 51 85 99 139 136 29 43 71 101 182 52 33 74 161 176 94 115 119 15 95 97 23 51 47 104 50 11 148 121 171 36 183 88 190 158 33 128 20 122 36 10 40 98 76 172 74 152 40 102 13 128 97 192 14 10 93 31 67 79 56 110 110 173 89 161 13 117 84 5 8 82 153 155 142 60 8 12 99 194 190 70 162 134
+Sortiertes Array:
+1 10** 101 102* 104* 106 108** 109 11 110* 114* 115 117 119* 12* 121 122 124 125 128** 13* 134* 135 136 137 138 139 14 142* 145 148 149 15 150 152* 153 154 155 156 158* 16**** 160 161** 162 166 167 171* 172 173** 176* 177 182 183* 185* 186 188 190* 191 192* 194* 196 197 20**** 21 23 24 25 26 27* 29 31 33* 35** 36* 37 40** 41 42 43 44 45 46 47 48 5 50** 51** 52* 53* 54 55* 56** 57* 60 61 62 63 64 65 67 7 70** 71 73 74* 75 76 77* 79** 8** 82 84* 85* 87* 88* 89 9* 90* 91* 92* 93 94* 95 96 97** 98 99*
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ make
+gcc -g -Wall -Wextra -Werror -Wvla -std=c11 -pedantic    stringsort.c   -o stringsort
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ ./stringsort 200
+Unsorted array:
+170 164 25 13 55 59 153 159 90 185 41 113 154 186 137 184 101 46 124 159 48 105 117 189 36 79 10 54 140 87 8 62 3 33 76 58 44 29 170 134 166 11 199 121 149 136 57 2 134 181 114 182 38 183 171 75 62 134 129 154 173 89 17 176 123 93 35 119 74 5 54 193 168 53 66 69 142 123 23 76 56 137 11 95 73 134 170 87 68 51 42 41 141 11 18 16 104 5 135 130 162 141 123 82 195 141 151 89 64 126 165 121 64 128 168 89 63 138 176 131 189 170 173 82 181 143 98 37 148 34 168 110 175 43 192 122 185 95 11 1 21 129 74 37 57 42 126 120 132 55 4 74 25 129 156 159 72 55 196 20 41 116 130 168 112 74 43 97 169 6 50 190 135 125 28 145 167 106 17 52 161 21 126 187 150 82 146 174 89 94 194 130 11 76 51 123 150 94 172 119
+Sorted array:
+1 10 101 104 105 106 11**** 110 112 113 114 116 117 119* 120 121* 122 123*** 124 125 126** 128 129** 13 130** 131 132 134*** 135* 136 137* 138 140 141** 142 143 145 146 148 149 150* 151 153 154* 156 159** 16 161 162 164 165 166 167 168*** 169 17* 170*** 171 172 173* 174 175 176* 18 181* 182 183 184 185* 186 187 189* 190 192 193 194 195 196 199 2 20 21* 23 25* 28 29 3 33 34 35 36 37* 38 4 41** 42* 43* 44 46 48 5* 50 51* 52 53 54* 55** 56 57* 58 59 6 62* 63 64* 66 68 69 72 73 74*** 75 76** 79 8 82** 87* 89*** 90 93 94* 95* 97 98
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ valgrind ./stringsort 200
+==20240== Memcheck, a memory error detector
+==20240== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==20240== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==20240== Command: ./stringsort 200
+==20240==
+Unsorted array:
+106 27 90 199 76 158 98 107 76 119 41 137 91 111 92 142 157 12 82 157 89 147 144 140 159 0 89 147 153 138 185 59 118 75 59 146 34 109 5 62 28 47 199 119 110 91 13 19 55 95 177 97 194 121 37 153 73 126 101 27 17 38 38 87 113 97 33 99 158 38 161 186 37 113 105 148 4 70 167 12 117 96 109 112 169 146 17 43 24 118 22 193 108 60 80 22 110 113 73 68 104 35 7 141 148 112 41 104 135 161 116 52 57 177 164 27 75 182 22 100 52 44 93 161 56 126 135 166 39 8 35 95 195 42 189 143 106 30 0 41 191 68 46 49 46 10 28 121 144 50 173 149 46 19 110 102 145 197 69 136 5 56 32 1 50 21 96 108 3 48 102 195 117 148 196 163 110 24 36 55 26 10 156 72 29 66 126 174 63 147 110 20 3 94 173 5 67 22 114 71
+Sorted array:
+0* 1 10* 100 101 102* 104* 105 106* 107 108* 109* 110**** 111 112* 113** 114 116 117* 118* 119* 12* 121* 126** 13 135* 136 137 138 140 141 142 143 144* 145 146* 147** 148** 149 153* 156 157* 158* 159 161** 163 164 166 167 169 17* 173* 174 177* 182 185 186 189 19* 191 193 194 195* 196 197 199* 20 21 22*** 24* 26 27** 28* 29 3* 30 32 33 34 35* 36 37* 38** 39 4 41** 42 43 44 46** 47 48 49 5** 50* 52* 55* 56* 57 59* 60 62 63 66 67 68* 69 7 70 71 72 73* 75* 76* 8 80 82 87 89* 90 91* 92 93 94 95* 96* 97* 98 99
+==20240==
+==20240== HEAP SUMMARY:
+==20240==     in use at exit: 0 bytes in 0 blocks
+==20240==   total heap usage: 202 allocs, 202 frees, 3,306 bytes allocated
+==20240==
+==20240== All heap blocks were freed -- no leaks are possible
+==20240==
+==20240== For lists of detected and suppressed errors, rerun with: -s
+==20240== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ make cppcheck
+cppcheck --enable=warning,style --std=c11 stringsort.c
+Checking stringsort.c ...
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ make TARGET=stringsort-optimiert
+gcc -g -Wall -Wextra -Werror -Wvla -std=c11 -pedantic    stringsort-optimiert.c   -o stringsort-optimiert
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ make TARGET=stringsort-optimiert cpp
+check
+cppcheck --enable=warning,style --std=c11 stringsort-optimiert.c
+Checking stringsort-optimiert.c ...
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ ./stringsort-optimiert 200
+Unsorted array:
+57 187 99 196 176 159 33 97 139 118 136 122 67 172 91 121 136 30 145 10 45 18 182 61 30 82 56 41 44 193 42 101 180 141 97 156 53 83 54 144 1 142 66 68 67 158 190 155 140 87 166 185 106 148 199 136 182 55 129 26 49 172 80 181 65 177 90 70 12 96 15 165 190 81 186 57 191 128 13 131 15 179 69 121 79 68 9 14 75 139 192 76 63 72 10 128 2 100 199 14 148 166 132 138 47 118 196 39 46 161 122 61 92 191 135 171 11 144 137 39 35 130 115 50 2 125 131 156 177 130 123 77 96 55 16 95 125 164 86 171 125 9 184 169 152 119 92 116 16 30 107 3 160 22 54 114 100 185 23 29 67 146 107 115 153 75 162 78 191 49 49 68 10 185 37 114 57 129 182 73 111 89 28 23 64 34 90 164 171 113 145 38 59 4 105 12 31 68 90 174
+Sorted array:
+1 10** 100* 101 105 106 107* 11 111 113 114* 115* 116 118* 119 12* 121* 122* 123 125** 128* 129* 13 130* 131* 132 135 136** 137 138 139* 14* 140 141 142 144* 145* 146 148* 15* 152 153 155 156* 158 159 16* 160 161 162 164* 165 166* 169 171** 172* 174 176 177* 179 18 180 181 182** 184 185** 186 187 190* 191** 192 193 196* 199* 2* 22 23* 26 28 29 3 30** 31 33 34 35 37 38 39* 4 41 42 44 45 46 47 49** 50 53 54* 55* 56 57** 59 61* 63 64 65 66 67** 68*** 69 70 72 73 75* 76 77 78 79 80 81 82 83 86 87 89 9* 90** 91 92* 95 96* 97* 99
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ valgrind ./stringsort-optimiert 2000
+0 > /dev/null
+==20637== Memcheck, a memory error detector
+==20637== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==20637== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==20637== Command: ./stringsort-optimiert 20000
+==20637==
+==20637==
+==20637== HEAP SUMMARY:
+==20637==     in use at exit: 0 bytes in 0 blocks
+==20637==   total heap usage: 3 allocs, 3 frees, 244,096 bytes allocated
+==20637==
+==20637== All heap blocks were freed -- no leaks are possible
+==20637==
+==20637== For lists of detected and suppressed errors, rerun with: -s
+==20637== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ time ./stringsort 20000 > /dev/null
+
+real    0m3.945s
+user    0m3.938s
+sys     0m0.000s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ time ./stringsort-optimiert 20000 >
+/dev/null
+
+real    0m0.023s
+user    0m0.016s
+sys     0m0.000s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$
+
+
+
+
+Fragen:
+-Verhält sich das C-Programm bei allen Eingaben wie das Java-Programm?
+
+Das C-Programm und das Java-Programm verhalten sich nicht identisch, insbesondere bei der Behandlung von doppelten Werten im Array. Während das C-Programm diese korrekt anzeigt und sortiert, behandelt das Java-Programm Duplikate auf eine Weise, die sie im sortierten Array nur einmal erscheinen lässt und mit einem Stern markiert.
+
+
+-Ist das speicher-optimierte Programm schneller als das nicht optimierte?
+ ja
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ time ./stringsort 20000 > /dev/null
+
+real    0m4.004s
+user    0m3.998s
+sys     0m0.000s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ time ./stringsort-optimiert 20000 >
+/dev/null
+
+real    0m0.021s
+user    0m0.015s
+sys     0m0.001s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$
+
+
+Bonus:
+-Ist das kombinierte Programm schneller als die beiden ursprünglichen Programme?
+ Nein, es ist langsamer als das optimierte. Allerdings schneller als die nicht optimierte.
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ time ./stringsort 20000 > /dev/null
+
+real    0m4.004s
+user    0m3.998s
+sys     0m0.000s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ time ./stringsort-optimiert 20000 >
+/dev/null
+
+real    0m0.021s
+user    0m0.015s
+sys     0m0.001s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$ time ./stringsort-kombi 20000 > /dev
+/null
+double free or corruption (!prev)
+Aborted
+
+real    0m3.775s
+user    0m3.767s
+sys     0m0.001s
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe3$

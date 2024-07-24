@@ -1,0 +1,37 @@
+protokoll-aufgabe1-int
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$ make TARGET=aufgabe1-int
+gcc -g -fno-stack-protector -Wwrite-strings -Wall -Wextra -Werror -std=c11 -pedantic    aufgabe1-int.c   -o aufgabe1-int
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$ make TARGET=aufgabe1-int cppcheck
+cppcheck --enable=warning,style --std=c11 aufgabe1-int.c
+Checking aufgabe1-int.c ...
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$ ./aufgabe1-int
+Adresse         | Platzbedarf   | Typ                   | Name          | Wert
+0x7ffd56e5bbff  | 1             | int8_t                | i8            | 127
+0x7ffd56e5bbfc  | 2             | int16_t               | i16           | 32767
+0x7ffd56e5bbf8  | 4             | int32_t               | i32           | 2147483647
+0x7ffd56e5bbf0  | 8             | int64_t               | i64           | 9223372036854775807
+0x7ffd56e5bbef  | 1             | int_fast8_t           | i_fast8       | 127
+0x7ffd56e5bbe0  | 8             | int_fast16_t          | i_fast16      | 9223372036854775807
+0x7ffd56e5bbd8  | 8             | int_fast32_t          | i_fast32      | 9223372036854775807
+0x7ffd56e5bbd0  | 8             | int_fast64_t          | i_fast64      | 9223372036854775807
+0x7ffd56e5bbcf  | 1             | int_least8_t          | i_least8      | 127
+0x7ffd56e5bbcc  | 2             | int_least16_t         | i_least16     | 32767
+0x7ffd56e5bbc8  | 4             | int_least32_t         | i_least32     | 2147483647
+0x7ffd56e5bbc0  | 8             | int_least64_t         | i_least64     | 9223372036854775807
+0x7ffd56e5bbb8  | 8             | intmax_t              | intmax        | 9223372036854775807
+0x7ffd56e5bbb0  | 8             | intptr_t              | intptr        | 9223372036854775807
+0x7ffd56e5bbaf  | 1             | uint8_t               | u8            | 255
+0x7ffd56e5bbac  | 2             | uint16_t              | u16           | 65535
+0x7ffd56e5bba8  | 4             | uint32_t              | u32           | 4294967295
+0x7ffd56e5bba0  | 8             | uint64_t              | u64           | 18446744073709551615
+0x7ffd56e5bb9f  | 1             | uint_fast8_t          | u_fast8       | 255
+0x7ffd56e5bb90  | 8             | uint_fast16_t         | u_fast16      | 18446744073709551615
+0x7ffd56e5bb88  | 8             | uint_fast32_t         | u_fast32      | 18446744073709551615
+0x7ffd56e5bb80  | 8             | uint_fast64_t         | u_fast64      | 18446744073709551615
+0x7ffd56e5bb7f  | 1             | uint_least8_t         | u_least8      | 255
+0x7ffd56e5bb7c  | 2             | uint_least16_t        | u_least16     | 65535
+0x7ffd56e5bb78  | 4             | uint_least32_t        | u_least32     | 4294967295
+0x7ffd56e5bb70  | 8             | uint_least64_t        | u_least64     | 18446744073709551615
+0x7ffd56e5bb68  | 8             | uintmax_t             | uintmax       | 18446744073709551615
+0x7ffd56e5bb60  | 8             | uintptr_t             | uintptr       | 18446744073709551615
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$

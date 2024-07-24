@@ -1,0 +1,24 @@
+protokoll-aufgabe1-ansi
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$ make STD=c89 TARGET=aufgabe1-ansi
+make: Nothing to be done for 'all'.
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$ make STD=c89 TARGET=aufgabe1-ansi cppcheck
+cppcheck --enable=warning,style --std=c89 aufgabe1-ansi.c
+Checking aufgabe1-ansi.c ...
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$ ./aufgabe1-ansi
+Adresse         | Platzbedarf   | Typ                   | Name          | Wert
+0x7ffc5ad1865c  | 4             | int                   | i             | 42
+0x7ffc5ad18650  | 8             | long                  | l             | 1234567890
+0x7ffc5ad1864f  | 1             | char                  | c             | A
+0x7ffc5ad18648  | 4             | float                 | f             | 3.140000
+0x7ffc5ad18640  | 8             | double                | d             | 2.718280
+0x7ffc5ad1863e  | 2             | short                 | sh            | 32767
+0x7ffc5ad18638  | 4             | unsigned int          | ui            | 65535
+0x7ffc5ad18630  | 8             | unsigned long         | ul            | 4294967295
+0x7ffc5ad1862f  | 1             | signed char           | sc            | -128
+0x7ffc5ad1862e  | 1             | unsigned char         | uc            | 255
+0x7ffc5ad1862c  | 2             | unsigned short        | us            | 65535
+0x7ffc5ad1862a  | 2             | signed short          | ss            | -32768
+0x7ffc5ad18624  | 4             | signed int            | si            | -2147483648
+0x7ffc5ad18618  | 8             | signed long           | sl            | -2147483648
+0x7ffc5ad18610  | 8             | char*                 | s             | Hallo
+kevin@DESKTOP-P1ERQC0:/mnt/c/Users/Kevin/z-htwg/2. Semester/sypr-uebungen/Aufgabe1$
